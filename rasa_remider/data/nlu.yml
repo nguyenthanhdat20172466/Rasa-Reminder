@@ -1,0 +1,145 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: cap_nhat_thong_tin_ca_nhan
+  examples: |
+    - tôi muốn thay đổi thông tin account
+    - cập nhật thông tin cá nhân
+    - cập nhật tài khoản
+    - update account
+    - update Infor
+    - cập nhật
+
+- intent: thay_so_dien_thoai
+  examples: |
+    - tôi muốn thay số điện thoại?
+    - lưu số điện thoại mới?
+    - số điện thoại mới của tôi là [0919995316](phone_number)
+    - số mới [0912221561](phone_number)
+    - số đt mới [0919919635](phone_number)
+    - đt=[0919919635](phone_number)
+
+- intent: nhap_email_address
+  examples: |
+    - địa chỉ email: [ntthuy@neo.vn](email_address)
+    - [khong_biet_gi@gmail.com](email_address)
+    - [ntthuy@neo.vn](email_address)
+    - emai [kamejoko@gmail.com](email_address)
+    - emai=[testing@neo.vn](email_address)
+- intent: Nhap_ten
+  examples: |
+    - tôi tên là [Đạt](name)
+    - tôi tên là [Nguyễn Đạt](name)
+    - tôi tên là [Nguyễn Thành Đạt](name)
+    - [Duy](name)
+    - [Phạm Duy](name)
+    - [Nguyễn Thái Bảo](name)
+    - [Bảo](name)
+- intent: ask_remind_call
+  examples: |
+    - remind me to call [John](name)
+    - later I have to call [Alan](name)
+    - Please, remind me to call [Vova](name)
+    - please remind me to call [Tanja](name)
+    - I must not forget to call [Juste](name)
+- lookup: phone_number
+  examples: |
+    - [0-9]{10}
+    - [0-9]{11}
+
+- lookup: email_address
+  examples: |
+    - ^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$
+- lookup: name
+  examples: |
+    dict_Vietnamese_name.txt
+

@@ -1,0 +1,44 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  # - action: action_forget_reminders
+  - action: utter_greet
+  - action: action_set_reminder
+  - intent: mood_great
+  - action: utter_happy
+  - action: action_set_reminder
+- story: sad path 1
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up 
+  - action: utter_did_that_help
+  - action: action_set_reminder
+  - intent: affirm
+  - action: utter_happy
+  - action: action_set_reminder
+- story: sad path 2
+  steps:
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_set_reminder
+
+
+- story: Activate form Update Information
+  steps:
+  - intent: cap_nhat_thong_tin_ca_nhan
+  - action: update_information_form
+  - active_loop: update_information_form
+ 
+- story: Submit form Update Information
+  steps:
+  # Form is deactivated
+  - action: update_information_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_update_information

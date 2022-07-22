@@ -1,0 +1,81 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thay_so_dien_thoai
+  - cap_nhat_thong_tin_ca_nhan
+  - nhap_email_address
+  - Nhap_ten
+  - ask_remind_call
+  - EXTERNAL_reminder
+entities:
+- name
+- phone_number
+- email_address
+
+slots:
+  name:
+    type: text
+    mappings: 
+    - type: from_entity
+      entity: name
+    - type: custom
+  phone_number:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  email_address:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: email_address
+      
+forms:
+  update_information_form:
+    required_slots:
+        - phone_number
+        - email_address
+      
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by NeoAI Team."
+  
+  utter_ask_update_information_form_phone_number:
+  - text: "mời bạn nhập vào số điện thoại: "
+  
+  utter_ask_update_information_form_email_address:
+  - text: "mời bạn nhập vào địa chỉ email: "
+  utter_name:
+  - text: "oke {name}, {name} cần gì ở mình ạ"
+actions:
+- action_update_information
+- action_set_reminder
+- action_react_to_reminder
+#- action_forget_reminders
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

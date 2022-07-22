@@ -1,0 +1,48 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# - rule: Activate form Update Information
+#   steps:
+#   - intent: cap_nhat_thong_tin_ca_nhan
+#   - action: update_information_form
+#   - active_loop: update_information_form
+ 
+# - rule: Submit form Update Information
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: update_information_form
+#   steps:
+#   # Form is deactivated
+#   - action: update_information_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: action_update_information
+  
+- rule: Schedule a reminder
+  steps:
+  - intent: ask_remind_call
+  - action: action_set_reminder
+- rule: Trigger `action_react_to_reminder` for `EXTERNAL_reminder`
+  steps:
+  - intent: EXTERNAL_reminder
+  - action: action_react_to_reminder
+
+- rule: ask_name
+  steps:
+  - intent: Nhap_ten
+  - action: utter_name
+  - action: action_set_reminder
+  # - action: action_forget_reminders
